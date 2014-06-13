@@ -6,4 +6,4 @@ and the layout "templates/layouts/default.html.ep",
 <a href="<%== url_for %>">click here</a> to reload the page or
 <a href="/index.html">here</a> to move forward to a static page.
 <br />
-<a href="/register/">test register</a>
+<a href="/register">test register</a>
