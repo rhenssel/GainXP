@@ -1,6 +1,8 @@
 package GainXP;
 use Mojo::Base 'Mojolicious';
 
+use Mojo::Util qw(b64_encode b64_decode url_escape url_unescape hmac_sha1_sum);
+
 # This method will run once at server start
 sub startup {
 	my $self = shift;
