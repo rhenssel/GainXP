@@ -10,8 +10,11 @@
     <p>Wrong confirm_password</p>
   % }
   <input type="email" name="email" placeholder="Email" required></input> <br />
-  % if ($self->stash('invalidEmail')) {
+  % if ($self->stash('invalidEmail') == 1) {
     <p>Email already in use</p>
+  % }
+  % elsif ($self->stash('invalidEmail') == 2) {
+    <p>Invalid Email</p>
   % }
   <button type="submit">Register</button>
 </form>
