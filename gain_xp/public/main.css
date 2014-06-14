@@ -562,8 +562,13 @@ h1, h2
 
 #content p
 {
-	vertical-align: top;
+	margin: 0 0 1em 0;
 	line-height: 1em;
+	padding-top: 1em;
+}
+
+#content .info
+{
 }
 
 @font-face
@@ -590,12 +595,18 @@ h1, h2
 	display: inline-block;
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+	width: auto;
+	height: auto;
+}
+.rocket
+{
+	float: left;
+	width: auto;
+	margin: 0 1em 1em 0;
 }
 
 .rocket:before
 {
 	content: '\e800';
 	font-size: 500%;
-	float: left;
-	padding-right: 10px;
 }
