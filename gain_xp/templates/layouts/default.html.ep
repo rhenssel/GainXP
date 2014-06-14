@@ -14,12 +14,6 @@
 		</ul>
 	</nav>
 	<div id="content" class="wrap">
-		<h2>GainXP</h2>
-		<p>
-			<span class="rocket icon"></span>
-			GainXP est un ...
-			<a href="">S'inscrire</a>
-		</p>
 		<%= content %>
 	</div>
   </body>

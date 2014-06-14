@@ -1,7 +1,8 @@
+<h2>Sign up</h2>
 <form method="post">
   <input type="texte" name="login" placeholder="Login" required></input> <br />
   % if ($self->stash('invalidLogin')) {
-    <p>Login already use</p>
+    <p>Login already in use</p>
   % }
   <input type="password" name="password" placeholder="Password" required></input> <br />
   <input type="password" name="confirm_password" placeholder="Confirm_Password" required></input> <br />
@@ -9,8 +10,11 @@
     <p>Wrong confirm_password</p>
   % }
   <input type="email" name="email" placeholder="Email" required></input> <br />
-  % if ($self->stash('invalidEmail')) {
-    <p>Email already use</p>
+  % if ($self->stash('invalidEmail') == 1) {
+    <p>Email already in use</p>
+  % }
+  % elsif ($self->stash('invalidEmail') == 2) {
+    <p>Invalid Email</p>
   % }
   <button type="submit">Register</button>
 </form>

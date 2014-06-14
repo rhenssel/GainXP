@@ -31,7 +31,7 @@ sub startup {
 	# Router
 	my $r = $self->routes;
 	
-	$r->get('/')->to('example#welcome');
+	$r->get('/')->to('Root#index');
 
 	my $rs = $r->bridge("/")->to(cb => sub {
 		my $self = shift;
