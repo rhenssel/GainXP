@@ -55,10 +55,11 @@ sub startup {
 		return 0;
 	});
 	
-	$r->route('/login/')                                                                     ->via('get')   ->to('Login#login_form');
-    $r->route('/login/')                                                                     ->via('post')  ->to('Login#login');
-
-	$rs->route('/logout/')                                                                   ->via('get')   ->to('Login#logout');
+	$r->route('/login/')->via('get')->to('Login#login_form');
+	$r->route('/register')->via('get')->to('Register#register_form');
+	$r->route('/register')->via('post')->to('Register#register_handler');
+	$r->route('/login/')->via('post')->to('Login#login');
+	$rs->route('/logout/')->via('get')->to('Login#logout');
 	
 }
 
