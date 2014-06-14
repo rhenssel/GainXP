@@ -16,5 +16,7 @@
   % elsif ($self->stash('invalidEmail') == 2) {
     <p>Invalid Email</p>
   % }
-  <button type="submit">Register</button>
+  <button><a href="<%= url_for("/") %>">Cancel</a></button>
+  <button type="submit">Register</butt <button>
+  <button><a href="<%= url_for("register") %>">clear</a></button>
 </form>
