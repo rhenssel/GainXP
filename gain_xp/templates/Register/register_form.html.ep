@@ -1,3 +1,4 @@
+<h2>Sign up</h2>
 <form method="post">
   <input type="texte" name="login" placeholder="Login" required></input> <br />
   % if ($self->stash('invalidLogin')) {

@@ -1,0 +1,9 @@
+% layout 'default';
+% title 'Welcome';
+<h2>GainXP</h2>
+<p>
+	<span class="rocket icon"></span>
+	GainXP est un ...
+	<a href="<%= url_for("register") %>">Sign up</a>
+</p>
+
