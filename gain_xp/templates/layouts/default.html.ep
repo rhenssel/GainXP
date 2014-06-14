@@ -2,14 +2,15 @@
 <html>
   <head>
 	<title><%= title %></title>
-	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="/main.css" />
   </head>
   <body>
 	<nav id="nav">
 		<ul class="wrap">
-			<li><a href="index">Acceuil</a></li>
-			<li><a href="login">Connexion</a></li>
-			<li><a href="register">Inscription</a></li>
+			<li><a href="/">Acceuil</a></li>
+			<li><a href="/login">Connexion</a></li>
+			<li><a href="/register">Inscription</a></li>
+			<% if(session('auth')) { %><li><a href="/logout">Logout</li><% } %>
 		</ul>
 	</nav>
 	<div id="content" class="wrap">
@@ -19,10 +20,7 @@
 			GainXP est un ...
 			<a href="">S'inscrire</a>
 		</p>
-		<!-- <form type=""> -->
-		<!-- 	<label for=""> -->
-		<!-- </form> -->
-		<!-- <%= content %> -->
+		<%= content %>
 	</div>
   </body>
 </html>

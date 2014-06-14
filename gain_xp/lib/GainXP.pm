@@ -7,7 +7,6 @@ use Mojo::Util qw(b64_encode b64_decode url_escape url_unescape hmac_sha1_sum);
 sub startup {
 	my $self = shift;
 	
-	
     $self->{secrets} = ['DUMMY']; # Keeps Mojolicious happy until the real secrets can be loaded from the config file.
     # Loading configuration and applying app settings
     $self->plugin('Config' => {file => $self->app->home->rel_file('Config/GainXP.conf')});
@@ -29,15 +28,11 @@ sub startup {
 		helper   => 'db',
 		});
 
-	# Documentation browser under "/perldoc"
-	$self->plugin('PODRenderer');
-
 	# Router
 	my $r = $self->routes;
-
-	# Normal route to controller
+	
 	$r->get('/')->to('example#welcome');
-  
+
 	my $rs = $r->bridge("/")->to(cb => sub {
 		my $self = shift;
 
@@ -51,15 +46,18 @@ sub startup {
 		my $checksum = hmac_sha1_sum($encodedReferer, $self->app->secrets->[0]);
 
 		# Not authenticated
-		$self->redirect_to('/login/?ref='.b64_encode($self->req->url(),'').'::'.$checksum);
+		$self->redirect_to('/login/?referer='.b64_encode($self->req->url(),'').'::'.$checksum);
 		return 0;
 	});
-	
-	$r->route('/login/')->via('get')->to('Login#login_form');
-	$r->route('/register')->via('get')->to('Register#register_form');
-	$r->route('/register')->via('post')->to('Register#register_handler');
-	$r->route('/login/')->via('post')->to('Login#login');
-	$rs->route('/logout/')->via('get')->to('Login#logout');
+
+	$r->route('/register') ->via('get')  ->to('Register#register_form');
+	$r->route('/register') ->via('post') ->to('Register#register_handler');
+
+	$r->route('/login')    ->via('get')  ->to('Auth#login');
+	$r->route('/auth')     ->via('post') ->to('Auth#auth');
+	$rs->route('/logout')  ->via('get')  ->to('Auth#logout');
+
+	$rs->route('/secret')  ->via('get')  ->to('Secret#index');
 	
 }
 
