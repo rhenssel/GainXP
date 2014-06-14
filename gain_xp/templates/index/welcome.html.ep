@@ -1,9 +1,10 @@
 % layout 'default';
 % title 'Welcome';
 <h2>GainXP</h2>
-<p>
-	<span class="rocket icon"></span>
-	GainXP est un ...
-	<a href="<%= url_for("register") %>">Sign up</a>
+<span class="rocket icon"></span>
+<p class="info">
+	The aim of GainXP is to provide people with a way of gamifying anything
+	you want. You can gamify personnal or professional project,
+	alone or with group of friends or colleagues.<br />
+	<a href="<%= url_for("register") %>">Sign up</a> now !
 </p>
-
